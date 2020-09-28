@@ -1,5 +1,6 @@
 package com.api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -32,7 +33,8 @@ public class Items extends AuditEntity implements Serializable {
     private Integer quantity;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sub_category_id",nullable = false)
+    @JoinColumn(name = "sub_category_id", nullable = false)
+    @JsonBackReference
     private SubCategorys subCategorys;
 
 }

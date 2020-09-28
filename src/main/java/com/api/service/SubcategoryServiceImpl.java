@@ -1,5 +1,6 @@
 package com.api.service;
 
+import com.api.mapper.SubcategoryMapper;
 import com.api.model.SubCategorys;
 import com.api.repository.SubcategoryRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -22,8 +23,8 @@ public class SubcategoryServiceImpl implements SubcategoryService {
     }
 
     @Override
-    public List<SubCategorys> all() {
-        log.info("fetching all subcateory");
-        return subcategoryRepository.findAll();
+    public List<SubcategoryMapper> all() {
+        log.info("fetching all subcategory : {} ");
+        return subcategoryRepository.getAllSubcategory();
     }
 }

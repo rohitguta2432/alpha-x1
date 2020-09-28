@@ -1,7 +1,9 @@
 package com.api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,8 +36,10 @@ public class SubCategorys extends AuditEntity implements Serializable {
     @JoinColumn(name = "category_id", nullable = false)
     private Categorys category;
 
+
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "sub_category_id",foreignKey = @ForeignKey(name = "fk_item_sub_category"))
+    @JsonManagedReference
     Set<Items> items;
 
 }

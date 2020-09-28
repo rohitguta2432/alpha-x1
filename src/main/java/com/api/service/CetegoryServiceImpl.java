@@ -1,5 +1,6 @@
 package com.api.service;
 
+import com.api.mapper.CategoryMapper;
 import com.api.model.Categorys;
 import com.api.repository.CategoryRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -22,8 +23,8 @@ public class CetegoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Categorys> getAll() {
+    public List<CategoryMapper> getAll() {
         log.info("fetching all category : {} ");
-        return categoryRepository.findAll();
+        return categoryRepository.getAllCategory();
     }
 }
